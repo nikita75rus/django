@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - Барбершоп{% endblock %}
+
+{% block content %}
+<div class="landing-page">
+    <h1>Добро пожаловать в наш Барбершоп!</h1>
+    
+    <!-- Секция с мастерами -->
+    <section class="masters-section">
+        <h2>Наши мастера</h2>
+        <div class="masters-grid">
+            {% for master in masters %}
+            <div class="master-card">
+                <h3>{{ master.name }}</h3>
+                <p>ID мастера: {{ master.id }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Секция с услугами -->
+    <section class="services-section">
+        <h2>Наши услуги</h2>
+        <ul class="services-list">
+            {% for service in services %}
+            <li>{{ service }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Кнопка для перехода к заявкам -->
+    <div class="cta-section">
+        <a href="{% url 'orders_list' %}" class="btn btn-primary">Посмотреть заявки</a>
+    </div>
+</div>
+{% endblock %}
